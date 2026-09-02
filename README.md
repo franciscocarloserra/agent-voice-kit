@@ -6,10 +6,6 @@
 
 # 🎤 ➜ 🤖 ➜ 🔊
 
-```
-you speak                  the agent answers              you hear it (optional)
-press F1, talk, press F1   the text lands in the window   the reply is read aloud
-```
 
 Press a key, say what you want, press it again. Your words are typed wherever you were writing, in any app.
 If you want, the agent reads its answer back to you.
