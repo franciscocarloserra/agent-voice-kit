@@ -14,6 +14,10 @@ press F1, talk, press F1   the text lands in the window   the reply is read alou
 Press a key, say what you want, press it again. Your words are typed wherever you were writing, in any app.
 If you want, the agent reads its answer back to you.
 
+
+https://github.com/user-attachments/assets/5b833182-b347-43ad-ab08-6782d41221e6
+
+
 It all runs on your own computer. Nothing is sent anywhere, and there is no waiting for a server: the text is there the moment you stop talking.
 
 ## Install
