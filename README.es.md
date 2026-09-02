@@ -14,6 +14,10 @@ apretás F1, hablás, F1         el texto aparece en la ventana   la respuesta s
 Apretás una tecla, decís lo que querés, la apretás de nuevo. Tus palabras quedan escritas donde estabas escribiendo, en cualquier app.
 Si querés, el agente te lee la respuesta.
 
+
+https://github.com/user-attachments/assets/5b833182-b347-43ad-ab08-6782d41221e6
+
+
 Todo corre en tu computadora. No se manda nada a ningún lado y no hay que esperar a un servidor: el texto está ahí en el momento en que dejás de hablar.
 
 ## Instalar
