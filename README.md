@@ -25,7 +25,7 @@ It all runs on your own computer. Nothing is sent anywhere, and there is no wait
 Paste this into your agent (Claude Code, pi, Codex, Gemini CLI):
 
 ```
-Install https://github.com/<you>/agent-voice-kit following its AGENTS.md
+Install https://github.com/franciscocarloserra/agent-voice-kit/ following its AGENTS.md
 ```
 
 <ins>**What you will have to do by hand.**</ins> The agent cannot click these for you:
