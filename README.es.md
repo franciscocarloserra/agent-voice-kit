@@ -1,15 +1,11 @@
 [English](README.md) · **Español**
 
-# agent-voice-kit
+# Agent Voice Kit
 
 ## Hablá con tu agente de IA en vez de escribir
 
 # 🎤 ➜ 🤖 ➜ 🔊
 
-```
-vos hablás                     el agente responde               vos lo escuchás (opcional)
-apretás F1, hablás, F1         el texto aparece en la ventana   la respuesta se lee en voz alta
-```
 
 Apretás una tecla, decís lo que querés, la apretás de nuevo. Tus palabras quedan escritas donde estabas escribiendo, en cualquier app.
 Si querés, el agente te lee la respuesta.
