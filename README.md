@@ -1,6 +1,6 @@
 **English** · [Español](README.es.md)
 
-# agent-voice-kit
+# Agent Voice Kit
 
 ## Talk with your AI agent instead of typing
 
