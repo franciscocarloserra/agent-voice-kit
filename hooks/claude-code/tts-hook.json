@@ -1,0 +1,1 @@
+{"enabled": true, "ttsBin": "/home/usuario/projects/know-how/local-tts/tts", "maxChars": 1500, "stripCodeBlocks": true, "stripMarkdown": true, "gateFile": "/home/usuario/.config/agent-voice-kit/tts-on"}

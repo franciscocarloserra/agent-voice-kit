@@ -1,0 +1,8 @@
+[Unit]
+Description=agent-voice-kit (whisper + tts)
+[Service]
+ExecStart={PY} {SCRIPT} serve
+WorkingDirectory={ROOT}
+Restart=always
+[Install]
+WantedBy=default.target

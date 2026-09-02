@@ -1,0 +1,7 @@
+venv/
+models/
+bin/
+logs/
+speed
+__pycache__/
+todelete/
