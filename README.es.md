@@ -25,7 +25,7 @@ Todo corre en tu computadora. No se manda nada a ningún lado y no hay que esper
 Pegale esto a tu agente (Claude Code, pi, Codex, Gemini CLI):
 
 ```
-Instalá https://github.com/<you>/agent-voice-kit siguiendo su AGENTS.md
+Instalá https://github.com/franciscocarloserra/agent-voice-kit/ siguiendo su AGENTS.md
 ```
 
 <ins>**Lo que vas a tener que hacer a mano.**</ins> El agente no puede clickear esto por vos:
