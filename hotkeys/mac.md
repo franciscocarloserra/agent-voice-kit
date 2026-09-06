@@ -9,8 +9,12 @@ shares the same combo. skhd binds at the event-tap level, so the key works in ev
 1. `brew install koekeishiya/formulae/skhd`
 2. Put this in `~/.config/skhd/skhdrc`:
 
-       cmd - 1       : {PY} {SCRIPT} dictate
-       cmd + alt - 1 : {PY} {SCRIPT} dictate cancel
+       cmd - 1 : {PY} {SCRIPT} dictate
+       cmd - 2 : {PY} {SCRIPT} dictate cancel
+
+   Cmd+1 / Cmd+2 rather than the F1 / Meta+F1 the rest of the kit documents. On a Mac the function
+   row is brightness and volume by default, so F1 only reaches the kit if the user first turns on
+   "Use F1, F2, etc. keys as standard function keys" — a setting most people do not have on.
 
 3. `skhd --start-service`
 4. Grant Accessibility to skhd: System Settings -> Privacy & Security -> Accessibility -> `+` ->
@@ -23,8 +27,8 @@ shares the same combo. skhd binds at the event-tap level, so the key works in ev
 Logs are at `/tmp/skhd_$USER.err.log` — the stderr of the commands skhd launches ends up there, which is
 where a failing dictation surfaces.
 
-Pick a combo no app claims. `cmd - 1` is "go to tab 1" in most browsers and skhd swallows it globally;
-`ctrl + alt - 1` or a function key avoids the conflict.
+The trade-off: skhd swallows the combo globally, and `cmd - 1` is "go to tab 1" in most browsers.
+`ctrl + alt - 1` avoids that if the browser shortcut matters more than the shorter reach.
 
 ## Automator Quick Actions (no extra software)
 

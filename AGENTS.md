@@ -38,6 +38,9 @@ Steps. Each one is idempotent and skippable; `voice.py doctor` is the source of 
 5. `voice.py install-hotkey`. Windows: writes the AutoHotkey script, no action. Mac and Linux: prints steps the USER must do (assign the two commands to keys). Walk them through it.
    Mac: prefer the skhd route in `hotkeys/mac.md` over Automator Quick Actions. Services shortcuts fail
    silently when an app claims the same combo, and only register reliably when System Settings writes them.
+   Mac keys are **Cmd+1 / Cmd+2**, not the F1 / Meta+F1 used elsewhere: the Mac function row is brightness
+   and volume unless the user has turned on "Use F1, F2, etc. keys as standard function keys", so F1 is a
+   default that silently does nothing on a stock machine.
 6. macOS only, USER ACTION: grant Microphone and Accessibility to whatever owns the hotkey (skhd, or the
    app running the Quick Action). Say why: without them recording is silent and typing does nothing.
    With skhd, **restart it after granting** (`skhd --restart-service`): it checks the permission once at
@@ -72,6 +75,10 @@ so a 1s dictation costs the same as a 10s one. On a base M1, `large-v3-turbo` ru
 `whisper-medium-mlx` ~1.9s, `whisper-small-mlx` ~0.5s, each step down trading accuracy. Set
 `whisper.mlx_model`. Note that 4-bit quantized variants save memory but do **not** speed this up — the
 encoder is compute-bound, and dequantization cancels the bandwidth gain.
+
+`mlx-community/whisper-small-mlx` is the combination verified end to end on a base M1 (~0.5s, usable
+Spanish). The stock `large-v3-turbo` default is the right one for faster Apple Silicon; on the low end it
+is worth telling the user the knob exists rather than leaving them with 3s per dictation.
 
 ## Use
 ```
