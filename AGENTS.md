@@ -35,8 +35,15 @@ Steps. Each one is idempotent and skippable; `voice.py doctor` is the source of 
 2. `python3 voice.py setup [stt|tts|all]`: creates a private Python environment, downloads the models (about 2 GB, takes a few minutes). No user action.
 3. (nothing to build; the ONNX engine from step 2 is the default)
 4. Ask: run in a terminal (`voice.py serve [stt|tts]`, visible log) or in background at login (`voice.py install-service`)? Then `voice.py check`.
-5. `voice.py install-hotkey`. Windows: writes the AutoHotkey script, no action. Mac and Linux: prints steps the USER must do in System Settings (assign F1 and Meta+F1 to the two commands). Walk them through it.
-6. macOS only, USER ACTION: grant Microphone and Accessibility to the app that runs the hotkey when the dialog appears. Say why: without them recording is silent and typing does nothing.
+5. `voice.py install-hotkey`. Windows: writes the AutoHotkey script, no action. Mac and Linux: prints steps the USER must do (assign the two commands to keys). Walk them through it.
+   Mac: prefer the skhd route in `hotkeys/mac.md` over Automator Quick Actions. Services shortcuts fail
+   silently when an app claims the same combo, and only register reliably when System Settings writes them.
+6. macOS only, USER ACTION: grant Microphone and Accessibility to whatever owns the hotkey (skhd, or the
+   app running the Quick Action). Say why: without them recording is silent and typing does nothing.
+   With skhd, **restart it after granting** (`skhd --restart-service`): it checks the permission once at
+   startup and stays dead otherwise. Its log is `/tmp/skhd_$USER.err.log`.
+6b. Warm the model before handing over: `voice.py check stt`. The weights download on the *first*
+   transcription, which makes that dictation take 20s or more and reads as a hang. Do it for them.
 7. If they want replies read aloud: install the harness hook (below). Off until toggled with `/tts`; the setting is global and persists.
 8. Finish with `voice.py doctor` and a 3-line summary: what is installed, which key does what, how to start and stop it.
    Then offer the optional upgrades below, in one sentence, and stop. Do not start them unless asked.
@@ -59,6 +66,12 @@ Then, no user action:
 **Background service.** If they chose the terminal at step 4 and later want it always on: `voice.py install-service`. No user action.
 
 **A different voice or speed.** `config.json` -> `tts.voice` (F1..F5, M1..M5) and `tts.speed`. No restart needed for speed.
+
+**Dictation too slow on Apple Silicon.** Latency is flat regardless of clip length: Whisper pads every clip to a 30s window,
+so a 1s dictation costs the same as a 10s one. On a base M1, `large-v3-turbo` runs ~2.9s per window;
+`whisper-medium-mlx` ~1.9s, `whisper-small-mlx` ~0.5s, each step down trading accuracy. Set
+`whisper.mlx_model`. Note that 4-bit quantized variants save memory but do **not** speed this up — the
+encoder is compute-bound, and dequantization cancels the bandwidth gain.
 
 ## Use
 ```
