@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """STT server: POST /transcribe (audio bytes) -> text/plain. Backend: faster-whisper (linux/windows) or mlx-whisper (mac)."""
 import os, sys, json, time, wave, tempfile, subprocess, glob, ctypes
-from http.server import ThreadingHTTPServer, BaseHTTPRequestHandler
+from http.server import HTTPServer, BaseHTTPRequestHandler
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CFG = json.load(open(os.environ.get("VOICEKIT_CONFIG", os.path.join(ROOT, "config.json"))))
 W, TOKEN = CFG["whisper"], CFG.get("token", "")
@@ -57,4 +57,4 @@ class H(BaseHTTPRequestHandler):
     def log_message(self, *a): pass
 
 print(f"whisper ({BACKEND}/{dev}) listening on http://127.0.0.1:{W['port']}/transcribe", flush=True)
-ThreadingHTTPServer(("127.0.0.1", W["port"]), H).serve_forever()
+HTTPServer(("127.0.0.1", W["port"]), H).serve_forever()
